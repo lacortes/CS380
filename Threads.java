@@ -1,3 +1,4 @@
+//
 import java.util.Random;
 
 // Shows a simple example of creating multiple threads.
