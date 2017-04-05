@@ -26,20 +26,23 @@ public final class EchoServer {
                     InputStreamReader inReader = new InputStreamReader(in, "UTF-8");
                     BufferedReader buffReader = new BufferedReader(inReader);
 
-                    while (true) { // Poll Client until 'exit'
-                        String info = buffReader.readLine();
-                        // System.out.println(info);
+                    try {
+                        while (true) { // Poll Client until 'exit'
+                            String info = buffReader.readLine();
+                            // System.out.println(info);
 
-                        out.println(info);
+                            out.println(info);
 
-                        if (info.equals("exit")) {
-                            // System.out.println("EXITING");
-                            System.out.printf("Address %s is disconnected.\n", address);
-                            break;
+                            if (info.equals("exit")) {
+                                // System.out.println("EXITING");
+                                System.out.printf("Address %s is disconnected.\n", address);
+                                break;
+                            }
                         }
+                    } catch (NullPointerException e) {
+                        System.out.printf("Address %s is disconnected.\n", address);
                     }
-
-                }
+                } 
             }
         }
     }
